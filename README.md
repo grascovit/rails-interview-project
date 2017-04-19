@@ -1,4 +1,4 @@
-# Kaleo Rails Engineer Candidate Interview Project
+# Rails Engineer Candidate Interview Project
 
 Thanks for taking the time to complete this exercise. We're excited that you're considering joining our amazing team.
 
@@ -30,7 +30,7 @@ A Tenant is a consumer of the API you are going to write. A db/seeds.rb file is 
 
 ## Project Setup
 
-Clone this repo locally, and from the top-level directory run:
+Fork then clone this repo locally, and from the top-level directory run:
 
 `bundle install`
 
@@ -44,4 +44,4 @@ You should see this same information.
 
 ## Submitting your project
 
-Send us a zip file of the whole project for us to evaluate it.  If you need to add any additional instructions to the README please put them at the very top of that file and mention.  Expect to discuss your design decisions during the interview.
+Send us a zip file or the Github URL of the whole project for us to evaluate it.  If you need to add any additional instructions to the README please put them at the very top of that file and mention.  Expect to discuss your design decisions during the interview.
