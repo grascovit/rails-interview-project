@@ -1,6 +1,16 @@
 [![Build Status](https://travis-ci.org/grascovit/rails-interview-project.svg?branch=master)](https://travis-ci.org/grascovit/rails-interview-project)
 [![codecov](https://codecov.io/gh/grascovit/rails-interview-project/branch/master/graph/badge.svg)](https://codecov.io/gh/grascovit/rails-interview-project)
 
+## Static code analysis
+You can run [Rubocop](https://github.com/bbatsov/rubocop) with `rubocop` command to check code offenses. If you want to autofix the offenses, run `rubocop -a` 
+
+## Coverage
+You can check the current coverage [here](https://codecov.io/gh/grascovit/rails-interview-project) or after running the test suite on `coverage` folder
+
+## Tests
+You can run the tests by running: `bundle exec rspec`
+
+
 # Rails Engineer Candidate Interview Project
 
 Thanks for taking the time to complete this exercise. We're excited that you're considering joining our amazing team.
