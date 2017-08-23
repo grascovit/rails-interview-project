@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/grascovit/rails-interview-project.svg?branch=master)](https://travis-ci.org/grascovit/rails-interview-project)
+[![codecov](https://codecov.io/gh/grascovit/rails-interview-project/branch/master/graph/badge.svg)](https://codecov.io/gh/grascovit/rails-interview-project)
+
 # Rails Engineer Candidate Interview Project
 
 Thanks for taking the time to complete this exercise. We're excited that you're considering joining our amazing team.
