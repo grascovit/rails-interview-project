@@ -29,6 +29,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'codecov', require: false
   gem 'ffaker'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
