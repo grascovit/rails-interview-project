@@ -29,5 +29,51 @@ RSpec.describe Question, type: :model do
         end
       end
     end
+
+    describe '.search_by_title' do
+      context 'when there is a query' do
+        it 'returns the questions that contains the query' do
+          desired_question = create(:question, title: 'this one is the right question')
+          other_desired_question = create(:question, title: 'this one is the right question too')
+          random_question = create(:question, title: 'this one is just a random question')
+
+          expected_questions = [desired_question, other_desired_question]
+
+          expect(Question.search_by_title('the right question')).to match_array(expected_questions)
+        end
+      end
+
+      context 'when there is no query' do
+        it 'returns all questions' do
+          questions = create_list(:question, 3)
+
+          expect(Question.search_by_title(nil)).to match_array(questions)
+        end
+      end
+    end
+  end
+
+  describe 'class methods' do
+    describe '.search' do
+      context 'when there is a query' do
+        it 'returns the questions that contains the query' do
+          desired_question = create(:question, title: 'this one is the right question')
+          other_desired_question = create(:question, title: 'this one is the right question too')
+          random_question = create(:question, title: 'this one is just a random question')
+
+          expected_questions = [desired_question, other_desired_question]
+
+          expect(Question.search('the right question')).to match_array(expected_questions)
+        end
+      end
+
+      context 'when there is no query' do
+        it 'returns all questions' do
+          questions = create_list(:question, 3)
+
+          expect(Question.search_by_title(nil)).to match_array(questions)
+        end
+      end
+    end
   end
 end
