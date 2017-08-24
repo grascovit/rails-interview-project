@@ -13,7 +13,7 @@ RSpec.describe ApiController, type: :controller do
     describe '#authenticate_tenant' do
       context 'when api key is valid' do
         it 'returns the tenant' do
-          request.headers['Authorization'] = "Token token=#{tenant.api_key}"
+          request.headers['Authorization'] = valid_authorization_token
 
           expect(controller.authenticate_tenant).to eq(tenant)
         end
@@ -21,7 +21,7 @@ RSpec.describe ApiController, type: :controller do
         it 'increments the tenant requests count by one' do
           previous_count = tenant.requests_count
 
-          request.headers['Authorization'] = "Token token=#{tenant.api_key}"
+          request.headers['Authorization'] = valid_authorization_token
           controller.authenticate_tenant
 
           tenant.reload
@@ -48,5 +48,11 @@ RSpec.describe ApiController, type: :controller do
         end
       end
     end
+  end
+
+  private
+
+  def valid_authorization_token
+    "Token token=#{tenant.api_key}"
   end
 end
