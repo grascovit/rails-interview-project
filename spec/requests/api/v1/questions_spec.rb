@@ -1,19 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe 'Questions', type: :request do
+  let(:tenant) { create(:tenant) }
+
   describe 'GET #index' do
     context 'when there are public and private questions' do
       let!(:public_questions) { create_list(:public_question, 2) }
       let!(:private_questions) { create_list(:private_question, 2) }
 
       it 'returns ok http status' do
-        get api_v1_questions_url
+        get api_v1_questions_url, headers: valid_authorization_header
 
         expect(response).to have_http_status(:ok)
       end
 
       it 'returns only public questions' do
-        get api_v1_questions_url
+        get api_v1_questions_url, headers: valid_authorization_header
 
         questions = JSON.parse(response.body)
         question_ids = questions.collect { |question| question['id'] }
@@ -22,7 +24,7 @@ RSpec.describe 'Questions', type: :request do
       end
 
       it 'does not return private questions' do
-        get api_v1_questions_url
+        get api_v1_questions_url, headers: valid_authorization_header
 
         questions = JSON.parse(response.body)
         question_ids = questions.collect { |question| question['id'] }
@@ -33,17 +35,23 @@ RSpec.describe 'Questions', type: :request do
 
     context 'when there are no questions' do
       it 'returns ok http status' do
-        get api_v1_questions_url
+        get api_v1_questions_url, headers: valid_authorization_header
 
         expect(response).to have_http_status(:ok)
       end
 
       it 'returns an empty array' do
-        get api_v1_questions_url
+        get api_v1_questions_url, headers: valid_authorization_header
 
         questions = JSON.parse(response.body)
         expect(questions).to match_array([])
       end
     end
+  end
+
+  private
+
+  def valid_authorization_header
+    { Authorization: "Token token=#{tenant.api_key}" }
   end
 end
