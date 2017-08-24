@@ -12,6 +12,8 @@ module Authenticable
       tenant = Tenant.find_by(api_key: api_key)
 
       if tenant
+        tenant.increment!(:requests_count)
+
         ActiveSupport::SecurityUtils.secure_compare(
           Digest::SHA256.hexdigest(api_key),
           Digest::SHA256.hexdigest(tenant.api_key)
