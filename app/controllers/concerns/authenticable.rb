@@ -13,8 +13,8 @@ module Authenticable
 
       if tenant
         ActiveSupport::SecurityUtils.secure_compare(
-            Digest::SHA256.hexdigest(api_key),
-            Digest::SHA256.hexdigest(tenant.api_key)
+          Digest::SHA256.hexdigest(api_key),
+          Digest::SHA256.hexdigest(tenant.api_key)
         )
 
         return tenant
