@@ -1,4 +1,4 @@
-class Api::V1::QuestionsController < ApplicationController
+class Api::V1::QuestionsController < ApiController
   def index
     @questions = Question.includes(:user, :answers, answers: :user).public_only
 
