@@ -17,6 +17,17 @@ RSpec.describe ApiController, type: :controller do
 
           expect(controller.authenticate_tenant).to eq(tenant)
         end
+
+        it 'increments the tenant requests count by one' do
+          previous_count = tenant.requests_count
+
+          request.headers['Authorization'] = "Token token=#{tenant.api_key}"
+          controller.authenticate_tenant
+
+          tenant.reload
+
+          expect(tenant.requests_count).to eq(previous_count + 1)
+        end
       end
 
       context 'when api key is not valid' do
@@ -24,6 +35,16 @@ RSpec.describe ApiController, type: :controller do
           get :index # fake controller index request
 
           expect(response).to have_http_status(:unauthorized)
+        end
+
+        it 'does not increment the tenant requests count' do
+          previous_count = tenant.requests_count
+
+          get :index # fake controller index request
+
+          tenant.reload
+
+          expect(tenant.requests_count).to eq(previous_count)
         end
       end
     end
