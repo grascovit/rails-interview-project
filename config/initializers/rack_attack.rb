@@ -11,7 +11,7 @@ class Rack::Attack
 
     [
       429,
-      {'Content-Type': 'application/json', 'Retry-After': retry_after.to_s},
+      {'Content-Type' => 'application/json', 'Retry-After' => retry_after.to_s},
       [{ error: 'Retry later' }.to_json]
     ]
   }
