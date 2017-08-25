@@ -1,6 +1,9 @@
 [![Build Status](https://travis-ci.org/grascovit/rails-interview-project.svg?branch=master)](https://travis-ci.org/grascovit/rails-interview-project)
 [![codecov](https://codecov.io/gh/grascovit/rails-interview-project/branch/master/graph/badge.svg)](https://codecov.io/gh/grascovit/rails-interview-project)
 
+## API documentation
+The API documentation with example call can be found [here](https://github.com/grascovit/rails-interview-project/wiki/API-documentation)
+
 ## Static code analysis
 You can run [Rubocop](https://github.com/bbatsov/rubocop) with `rubocop` command to check code offenses. If you want to autofix the offenses, run `rubocop -a` 
 
