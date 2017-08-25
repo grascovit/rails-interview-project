@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'active_model_serializers'
 gem 'coffee-rails', '~> 4.2.2'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'markdown-rails'
 gem 'puma'
+gem 'rack-attack'
 gem 'rails', '5.1.3'
 gem 'sass-rails', '~> 5.0.6'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -28,6 +30,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'codecov', require: false
   gem 'ffaker'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'

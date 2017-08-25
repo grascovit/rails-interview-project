@@ -1,0 +1,50 @@
+<div class="ui middle aligned centered grid">
+  <div class="ui center aligned row">
+    <h1 class="ui green header">
+      <i class="bar chart green icon"></i>
+      <div class="content">
+        Dashboard
+      </div>
+    </h1>
+  </div>
+  <div class="ui center aligned row">
+    <div class="ui statistic">
+      <div class="value">
+        <%= @users_count %>
+      </div>
+      <div class="label">
+        <i class="user icon"></i> User(s)
+      </div>
+    </div>
+  </div>
+  <div class="ui center aligned row">
+    <div class="ui statistic">
+      <div class="value">
+        <%= @questions_count %>
+      </div>
+      <div class="label">
+        <i class="browser icon"></i> Question(s)
+      </div>
+    </div>
+  </div>
+  <div class="ui center aligned row">
+    <div class="ui statistic">
+      <div class="value">
+        <%= @answers_count %>
+      </div>
+      <div class="label">
+        <i class="talk outline icon"></i> Answer(s)
+      </div>
+    </div>
+  </div>
+  <div class="ui center aligned row">
+    <div class="ui statistic">
+      <div class="value">
+        <%= @tenants_requests_count %>
+      </div>
+      <div class="label">
+        <i class="send outline icon"></i> API request(s) by <%= @tenants_count %> tenant(s)
+      </div>
+    </div>
+  </div>
+</div>
